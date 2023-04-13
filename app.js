@@ -33,7 +33,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
   
   const uploadedFile = await newSdk.ipfs().addFromPath(filePath, {wrapWithDirectory,});
 
-  fs.unlink(path.join(__dirname, filePath), (err) => {
+  fs.unlink(filePath, (err) => {
     if (err) console.error('Error deleting the temporary file:', err.message);
   });
   
